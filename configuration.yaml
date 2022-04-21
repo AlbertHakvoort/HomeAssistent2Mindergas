@@ -1,0 +1,9 @@
+rest_command:
+  mindergas_post:
+    url: https://www.mindergas.nl/api/meter_readings
+    method: POST
+    headers:
+      AUTH-TOKEN: XXXXXXXXXXXXXXXXX
+      Content-Type: "application/json"
+    payload: '{ "date": "{{ date }}", "reading": {{ meterreading }} }'
+    verify_ssl: true
