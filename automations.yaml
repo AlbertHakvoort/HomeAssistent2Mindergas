@@ -1,0 +1,13 @@
+- id: '1650522783809'
+  alias: Update Mindergas
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:58:30'
+  condition: []
+  action:
+  - service: rest_command.mindergas_post
+    data:
+      date: '{{ (now().timestamp() - 60*60) | timestamp_custom(''%Y-%m-%d'') }}'
+      meterreading: '{{ states(''sensor.XXXXXXXXXXXXXXXX'') }}'
+  mode: single
